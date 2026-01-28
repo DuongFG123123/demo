@@ -5070,9 +5070,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61cb43af1f8ba944faeefd01a2f3906f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6867312911971182926, guid: e149957fc2f2a3e4e980e3f493dba104,
+  bulletPrefabs: {fileID: 6867312911971182926, guid: e149957fc2f2a3e4e980e3f493dba104,
     type: 3}
-  firePoint: {fileID: 2130421042}
+  shootingInterval: 0
+  bulletOffset: {x: 0, y: 2, z: 0}
 --- !u!1001 &910671498
 PrefabInstance:
   m_ObjectHideFlags: 0

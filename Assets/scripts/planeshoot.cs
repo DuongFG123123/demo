@@ -1,20 +1,33 @@
 ﻿using UnityEngine;
 
-public class PlaneShoot : MonoBehaviour
+public class PlayerShoot : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-    public Transform firePoint;
+    public GameObject bulletPrefabs;
+    public float shootingInterval;
+    public Vector3 bulletOffset;
 
+    private float lastBulletTime;
+
+    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))   // chuột trái
+        if (Input.GetMouseButton(0))
         {
-            Shoot();
+            UpdateFiring();
         }
     }
 
-    void Shoot()
+    private void UpdateFiring()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        if (Time.time - lastBulletTime > shootingInterval)
+        {
+            ShootBullet();
+            lastBulletTime = Time.time;
+        }
+    }
+
+    private void ShootBullet()
+    {
+        var bullet = Instantiate(bulletPrefabs, transform.position + bulletOffset, transform.rotation);
     }
 }
